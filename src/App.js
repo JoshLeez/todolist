@@ -9,7 +9,7 @@ function App() {
  const [todos, setTodos] = useState([]);
  const [status, setStatus] = useState("all");
  const [filteredTodos, setFilteredTodos] = useState([]);
-}, [todos, status]);
+
  const filterHandler = () => {
   switch(status){
     case 'completed':
@@ -33,7 +33,7 @@ const saveLocalTodos = () => {
   };
  useEffect(() => {
   filterHandler()
-  saveLocalTodos()
+  saveLocalTodos()}, [todos, status]);
 
   return (
     <div className="App">
